@@ -10,7 +10,9 @@ namespace Phlexible\Bundle\ElasticaBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
@@ -18,9 +20,9 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @author Stephan Wentz <sw@brainbits.net>
  */
-class ElasticaExtension extends Extension
+class PhlexibleElasticaExtension extends Extension
 {
-    public function load(ContainerBuilder $container, array $configs)
+    public function load(array $config, ContainerBuilder $container)
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         //$loader->load('services.yml');
@@ -32,14 +34,13 @@ class ElasticaExtension extends Extension
             throw new \InvalidArgumentException('You must define at least one client');
         }
 
+        $clientServices = $this->loadClients($config['clients'], $container);
+
         if (empty($config['default_client'])) {
-            $keys = array_keys($config['clients']);
-            $config['default_client'] = reset($keys);
+            $config['default_client'] = current($clientServices);
         }
 
-        $clientIdsByName = $this->loadClients($config['clients'], $container);
-
-        $container->setAlias('elasticaClient', sprintf('elasticaClient%s', ucfirst(strtolower($config['default_client']))));
+        $container->setAlias('phlexible.elastica.default_client', $config['default_client']);
     }
 
     /**
@@ -53,16 +54,16 @@ class ElasticaExtension extends Extension
     {
         $clientIds = array();
         foreach ($clients as $name => $clientConfig) {
-            $clientId = sprintf('elasticaClient%s', ucfirst(strtolower($name)));
+            $clientId = sprintf('phlexible_elastica.client.%s', strtolower($name));
             $clientDef = new Definition('Elastica\Client', array($clientConfig));
             $logger = $clientConfig['servers'][0]['logger'];
             if (false !== $logger) {
-                $clientDef->addCall(new Call('setLogger', array(new Reference($logger))));
+                $clientDef->addMethodCall('setLogger', array(new Reference($logger)));
             }
 
             $container->setDefinition($clientId, $clientDef);
 
-            $clientIds[$name] = $clientId;
+            $clientIds[] = $clientId;
         }
 
         return $clientIds;
