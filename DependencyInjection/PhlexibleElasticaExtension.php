@@ -40,7 +40,7 @@ class PhlexibleElasticaExtension extends Extension
             $config['default_client'] = current($clientServices);
         }
 
-        $container->setAlias('phlexible.elastica.default_client', $config['default_client']);
+        $container->setAlias('phlexible_elastica.default_client', $config['default_client']);
     }
 
     /**

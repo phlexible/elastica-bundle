@@ -29,13 +29,6 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('default_client')->end()
-                ->arrayNode('serializer')
-                    ->treatNullLike(array())
-                    ->children()
-                        ->scalarNode('callback_class')->defaultValue('FOS\ElasticaBundle\Serializer\Callback')->end()
-                        ->scalarNode('serializer')->defaultValue('serializer')->end()
-                    ->end()
-                ->end()
             ->end()
         ;
 
