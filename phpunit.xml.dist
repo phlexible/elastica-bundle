@@ -7,7 +7,7 @@
          syntaxCheck="true"
          verbose="true">
     <testsuites>
-        <testsuite name="indexer-bundle">
+        <testsuite name="elastica-bundle">
             <directory>Tests</directory>
         </testsuite>
     </testsuites>
