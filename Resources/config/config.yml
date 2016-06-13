@@ -11,7 +11,7 @@ services:
     phlexible_elastica.data_collector:
         class: Phlexible\Bundle\ElasticaBundle\DataCollector\ElasticaDataCollector
         arguments:
-            - @phlexible_elastica.logger
+            - "@phlexible_elastica.logger"
         tags:
             - {name: "data_collector", template: "PhlexibleElasticaBundle:Collector:elastica", id: "elastica"}
 
