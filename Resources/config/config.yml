@@ -1,0 +1,24 @@
+services:
+    phlexible_elastica.client_prototype:
+        class: Phlexible\Bundle\ElasticaBundle\Elastica\Client
+        abstract: true
+        arguments:
+            - []
+            -
+        calls:
+            - ["setStopwatch", ["@?debug.stopwatch"]]
+
+    phlexible_elastica.data_collector:
+        class: Phlexible\Bundle\ElasticaBundle\DataCollector\ElasticaDataCollector
+        arguments:
+            - @phlexible_elastica.logger
+        tags:
+            - {name: "data_collector", template: "PhlexibleElasticaBundle:Collector:elastica", id: "elastica"}
+
+    phlexible_elastica.logger:
+        class: Phlexible\Bundle\ElasticaBundle\Logger\ElasticaLogger
+        arguments:
+            - "@?logger"
+            - "%kernel.debug%"
+        tags:
+            - {name: "monolog.logger", channel: "elastica"}
