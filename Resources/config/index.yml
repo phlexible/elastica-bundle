@@ -1,0 +1,6 @@
+services:
+    phlexible_elastica.index_prototype:
+        class: Phlexible\Bundle\ElasticaBundle\Elastica\Index
+        abstract: true
+        arguments:
+            -
