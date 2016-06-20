@@ -2,6 +2,7 @@
 
 namespace Phlexible\Bundle\ElasticaBundle\Logger;
 
+use Exception;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -54,7 +55,7 @@ class ElasticaLogger implements LoggerInterface
     public function logQuery($path, $method, $data, $time, $connection = array(), $query = array(), $engineTime = 0, $itemCount = 0)
     {
         if ($this->debug) {
-            $e = new \Exception();
+            $e = new Exception();
 
             $this->queries[] = array(
                 'path' => $path,

@@ -2,6 +2,7 @@
 
 namespace Phlexible\Bundle\ElasticaBundle\DataCollector;
 
+use Exception;
 use Phlexible\Bundle\ElasticaBundle\Logger\ElasticaLogger;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,7 +28,7 @@ class ElasticaDataCollector extends DataCollector
     /**
      * {@inheritdoc}
      */
-    public function collect(Request $request, Response $response, \Exception $exception = null)
+    public function collect(Request $request, Response $response, Exception $exception = null)
     {
         $this->data['nb_queries'] = $this->logger->getNbQueries();
         $this->data['queries'] = $this->logger->getQueries();

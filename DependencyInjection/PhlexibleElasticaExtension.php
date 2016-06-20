@@ -48,7 +48,7 @@ class PhlexibleElasticaExtension extends Extension
         $config = $this->processConfiguration($configuration, $config);
 
         if (empty($config['clients']) || empty($config['indexes'])) {
-            throw new \InvalidArgumentException('You must define at least one client and index');
+            throw new InvalidArgumentException('You must define at least one client and index');
         }
 
         foreach (array('config', 'index') as $basename) {
@@ -116,7 +116,7 @@ class PhlexibleElasticaExtension extends Extension
      * @param array            $indexes   An array of indexes configurations
      * @param ContainerBuilder $container A ContainerBuilder instance
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      *
      * @return array
      */
@@ -167,7 +167,7 @@ class PhlexibleElasticaExtension extends Extension
      *
      * @return Reference
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     private function getClient($clientName)
     {
