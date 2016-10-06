@@ -13,7 +13,7 @@ services:
         arguments:
             - "@phlexible_elastica.logger"
         tags:
-            - {name: "data_collector", template: "PhlexibleElasticaBundle:Collector:elastica", id: "elastica"}
+            - {name: "data_collector", template: "PhlexibleElasticaBundle:Collector:elastica", id: "elastica", priority: -2}
 
     phlexible_elastica.logger:
         class: Phlexible\Bundle\ElasticaBundle\Logger\ElasticaLogger
