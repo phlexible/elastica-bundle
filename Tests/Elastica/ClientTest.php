@@ -13,7 +13,7 @@ namespace Phlexible\Bundle\ElasticaBundle\Tests\Client;
 
 use Elastica\Connection;
 use Elastica\Request;
-use Elastica\Transport\Null as NullTransport;
+use Elastica\Transport\NullTransport;
 use Phlexible\Bundle\ElasticaBundle\Elastica\Client;
 use Phlexible\Bundle\ElasticaBundle\Logger\ElasticaLogger;
 
