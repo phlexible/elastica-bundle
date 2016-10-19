@@ -14,7 +14,7 @@ namespace Phlexible\Bundle\ElasticaBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Elastica bundle
+ * Elastica bundle.
  *
  * @author Stephan Wentz <sw@brainbits.net>
  */

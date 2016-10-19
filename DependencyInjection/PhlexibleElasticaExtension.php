@@ -20,7 +20,7 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
- * Elastica extension
+ * Elastica extension.
  *
  * @author Stephan Wentz <sw@brainbits.net>
  */
@@ -177,6 +177,7 @@ class PhlexibleElasticaExtension extends Extension
         if (!array_key_exists($clientName, $this->clients)) {
             throw new InvalidArgumentException(sprintf('The elastica client with name "%s" is not defined', $clientName));
         }
+
         return $this->clients[$clientName]['reference'];
     }
 }

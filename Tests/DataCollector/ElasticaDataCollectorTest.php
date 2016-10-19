@@ -79,12 +79,12 @@ class ElasticaDataCollectorTest extends \PHPUnit_Framework_TestCase
         $queries = array(
             array(
                 'engineMS' => 15,
-                'executionMS' => 10
+                'executionMS' => 10,
             ),
             array(
                 'engineMS' => 25,
-                'executionMS' => 20
-            )
+                'executionMS' => 20,
+            ),
         );
 
         $logger->getNbQueries()->willReturn(count($queries));

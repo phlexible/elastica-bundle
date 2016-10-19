@@ -19,7 +19,7 @@ class PhlexibleElasticaExtensionTest extends \PHPUnit_Framework_TestCase
 {
     public function testBasicConfig()
     {
-        $yaml = <<<EOF
+        $yaml = <<<'EOF'
 phlexible_elastica:
     clients:
         test_client:
@@ -43,9 +43,10 @@ EOF;
         $this->assertTrue($containerBuilder->hasDefinition('phlexible_elastica.index.test_index'));
         $this->assertTrue($containerBuilder->hasAlias('phlexible_elastica.index'));
     }
+
     public function testDefaultClientAndIndexConfig()
     {
-        $yaml = <<<EOF
+        $yaml = <<<'EOF'
 phlexible_elastica:
     default_client: test_client2
     clients:

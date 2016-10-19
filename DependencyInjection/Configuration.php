@@ -16,7 +16,7 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * Container configuration
+ * Container configuration.
  *
  * @author Stephan Wentz <sw@brainbits.net>
  */
@@ -70,25 +70,33 @@ class Configuration implements ConfigurationInterface
                         ->performNoDeepMerging()
                         // BC - Renaming 'servers' node to 'connections'
                         ->beforeNormalization()
-                            ->ifTrue(function ($v) { return isset($v['servers']); })
+                            ->ifTrue(function ($v) {
+                                return isset($v['servers']);
+                            })
                             ->then(function ($v) {
                                 $v['connections'] = $v['servers'];
                                 unset($v['servers']);
+
                                 return $v;
                             })
                         ->end()
                         // Elastica names its properties with camel case, support both
                         ->beforeNormalization()
-                            ->ifTrue(function ($v) { return isset($v['connection_strategy']); })
+                            ->ifTrue(function ($v) {
+                                return isset($v['connection_strategy']);
+                            })
                             ->then(function ($v) {
                                 $v['connectionStrategy'] = $v['connection_strategy'];
                                 unset($v['connection_strategy']);
+
                                 return $v;
                             })
                         ->end()
                         // If there is no connections array key defined, assume a single connection.
                         ->beforeNormalization()
-                            ->ifTrue(function ($v) { return is_array($v) && !array_key_exists('connections', $v); })
+                            ->ifTrue(function ($v) {
+                                return is_array($v) && !array_key_exists('connections', $v);
+                            })
                             ->then(function ($v) {
                                 return array(
                                     'connections' => array($v),
@@ -103,8 +111,12 @@ class Configuration implements ConfigurationInterface
                                     ->children()
                                         ->scalarNode('url')
                                             ->validate()
-                                                ->ifTrue(function ($url) { return $url && substr($url, -1) !== '/'; })
-                                                ->then(function ($url) { return $url.'/'; })
+                                                ->ifTrue(function ($url) {
+                                                    return $url && substr($url, -1) !== '/';
+                                                })
+                                                ->then(function ($url) {
+                                                    return $url.'/';
+                                                })
                                             ->end()
                                         ->end()
                                         ->scalarNode('host')->end()
@@ -139,6 +151,7 @@ class Configuration implements ConfigurationInterface
             ->end()
         ;
     }
+
     /**
      * Adds the configuration for the "indexes" key.
      */
