@@ -14,7 +14,7 @@ namespace Phlexible\Bundle\ElasticaBundle\Tests;
 use Phlexible\Bundle\ElasticaBundle\PhlexibleElasticaBundle;
 
 /**
- * Elastica bundle test
+ * Elastica bundle test.
  *
  * @author Stephan Wentz <sw@brainbits.net>
  */

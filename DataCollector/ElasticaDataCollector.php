@@ -13,9 +13,9 @@ namespace Phlexible\Bundle\ElasticaBundle\DataCollector;
 
 use Exception;
 use Phlexible\Bundle\ElasticaBundle\Logger\ElasticaLogger;
-use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
 /**
  * Data collector collecting elastica statistics.

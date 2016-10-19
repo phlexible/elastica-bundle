@@ -172,12 +172,12 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
     {
         $configuration = $this->getConfigs(array(
             'clients' => array(
-                'simple_timeout'       => array(
-                    'url'    => 'http://localhost:9200',
+                'simple_timeout' => array(
+                    'url' => 'http://localhost:9200',
                     'timeout' => 123,
                 ),
-                'connect_timeout'      => array(
-                    'url'    => 'http://localhost:9200',
+                'connect_timeout' => array(
+                    'url' => 'http://localhost:9200',
                     'connectTimeout' => 234,
                 ),
             ),

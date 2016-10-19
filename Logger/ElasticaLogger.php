@@ -35,7 +35,7 @@ class ElasticaLogger implements LoggerInterface
     protected $queries = array();
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $debug;
 
@@ -43,7 +43,7 @@ class ElasticaLogger implements LoggerInterface
      * Constructor.
      *
      * @param LoggerInterface|null $logger The Symfony logger
-     * @param boolean              $debug
+     * @param bool                 $debug
      */
     public function __construct(LoggerInterface $logger = null, $debug = false)
     {
@@ -75,12 +75,12 @@ class ElasticaLogger implements LoggerInterface
                 'connection' => $connection,
                 'queryString' => $query,
                 'itemCount' => $itemCount,
-                'backtrace' => $e->getTraceAsString()
+                'backtrace' => $e->getTraceAsString(),
             );
         }
 
         if (null !== $this->logger) {
-            $message = sprintf("%s (%s) %0.2f ms", $path, $method, $time * 1000);
+            $message = sprintf('%s (%s) %0.2f ms', $path, $method, $time * 1000);
             $this->logger->info($message, (array) $data);
         }
     }
@@ -88,7 +88,7 @@ class ElasticaLogger implements LoggerInterface
     /**
      * Returns the number of queries that have been logged.
      *
-     * @return integer The number of queries logged
+     * @return int The number of queries logged
      */
     public function getNbQueries()
     {
