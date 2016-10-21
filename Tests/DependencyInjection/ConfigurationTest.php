@@ -15,7 +15,11 @@ use Phlexible\Bundle\ElasticaBundle\DependencyInjection\Configuration;
 use Symfony\Component\Config\Definition\Processor;
 
 /**
- * ConfigurationTest.
+ * Configuration test.
+ *
+ * @author Stephan Wentz <sw@brainbits.net>
+ *
+ * @covers \Phlexible\Bundle\ElasticaBundle\DependencyInjection\Configuration
  */
 class ConfigurationTest extends \PHPUnit_Framework_TestCase
 {

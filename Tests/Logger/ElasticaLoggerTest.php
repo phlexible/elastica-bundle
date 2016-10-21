@@ -16,6 +16,8 @@ use Psr\Log\LoggerInterface;
 
 /**
  * @author Richard Miller <info@limethinking.co.uk>
+ *
+ * @covers \Phlexible\Bundle\ElasticaBundle\Logger\ElasticaLogger
  */
 class ElasticaLoggerTest extends \PHPUnit_Framework_TestCase
 {

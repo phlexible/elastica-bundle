@@ -15,6 +15,13 @@ use Phlexible\Bundle\ElasticaBundle\DependencyInjection\PhlexibleElasticaExtensi
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Yaml\Yaml;
 
+/**
+ * Phlexible elastica extension test
+ *
+ * @author Stephan Wentz <swentz@brainbits.net>
+ *
+ * @covers \Phlexible\Bundle\ElasticaBundle\DependencyInjection\PhlexibleElasticaExtension
+ */
 class PhlexibleElasticaExtensionTest extends \PHPUnit_Framework_TestCase
 {
     public function testBasicConfig()

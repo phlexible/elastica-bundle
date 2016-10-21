@@ -18,6 +18,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @author Richard Miller <info@limethinking.co.uk>
+ *
+ * @covers \Phlexible\Bundle\ElasticaBundle\DataCollector\ElasticaDataCollector
  */
 class ElasticaDataCollectorTest extends \PHPUnit_Framework_TestCase
 {
@@ -94,5 +96,15 @@ class ElasticaDataCollectorTest extends \PHPUnit_Framework_TestCase
         $elasticaDataCollector->collect($request->reveal(), $response->reveal());
 
         $this->assertEquals(40, $elasticaDataCollector->getTime());
+    }
+
+    public function testGetName()
+    {
+        /* @var $logger ElasticaLogger */
+        $logger = $this->prophesize(ElasticaLogger::class);
+
+        $elasticaDataCollector = new ElasticaDataCollector($logger->reveal());
+
+        $this->assertSame('elastica', $elasticaDataCollector->getName());
     }
 }
