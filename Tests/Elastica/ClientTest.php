@@ -18,6 +18,7 @@ use Elastica\Transport\NullTransport;
 use Phlexible\Bundle\ElasticaBundle\Elastica\Client;
 use Phlexible\Bundle\ElasticaBundle\Elastica\Index;
 use Phlexible\Bundle\ElasticaBundle\Logger\ElasticaLogger;
+use Prophecy\Argument;
 
 /**
  * Client test.
@@ -32,30 +33,30 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $transport = new NullTransport();
 
-        $connection = $this->getMock(Connection::class);
-        $connection->expects($this->any())->method('getTransportObject')->will($this->returnValue($transport));
-        $connection->expects($this->any())->method('toArray')->will($this->returnValue(array()));
+        $connection = $this->prophesize(Connection::class);
+        $connection->hasConfig('headers')->willReturn(false);
+        $connection->getTransport()->willReturn($transport);
+        $connection->getPort()->willReturn(123);
+        $connection->getHost()->willReturn('foo');
+        $connection->getParams()->willReturn(array());
+        $connection->isEnabled()->willReturn(true);
+        $connection->getTransportObject()->willReturn($transport);
+        $connection->toArray()->willReturn(array());
 
-        $logger = $this->getMock(ElasticaLogger::class);
+        $logger = $this->prophesize(ElasticaLogger::class);
         $logger
-            ->expects($this->once())
-            ->method('logQuery')
-            ->with(
+            ->logQuery(
                 'foo',
                 Request::GET,
-                $this->isType('array'),
-                $this->isType('float'),
-                $this->isType('array'),
-                $this->isType('array')
+                Argument::type('array'),
+                Argument::type('float'),
+                Argument::type('array'),
+                Argument::type('array')
             );
 
-        $client = $this->getMockBuilder(Client::class)
-            ->setMethods(array('getConnection'))
-            ->getMock();
-
-        $client->expects($this->any())->method('getConnection')->will($this->returnValue($connection));
-
-        $client->setLogger($logger);
+        $client = new Client();
+        $client->setLogger($logger->reveal());
+        $client->addConnection($connection->reveal());
 
         $response = $client->request('foo');
 
