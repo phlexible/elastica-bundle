@@ -12,16 +12,15 @@
 namespace Phlexible\Bundle\ElasticaBundle\Tests\DependencyInjection;
 
 use Phlexible\Bundle\ElasticaBundle\DependencyInjection\Configuration;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Processor;
 
 /**
  * Configuration test.
  *
- * @author Stephan Wentz <sw@brainbits.net>
- *
  * @covers \Phlexible\Bundle\ElasticaBundle\DependencyInjection\Configuration
  */
-class ConfigurationTest extends \PHPUnit_Framework_TestCase
+class ConfigurationTest extends TestCase
 {
     /**
      * @var Processor

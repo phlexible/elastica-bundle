@@ -12,17 +12,16 @@
 namespace Phlexible\Bundle\ElasticaBundle\Tests\DependencyInjection;
 
 use Phlexible\Bundle\ElasticaBundle\DependencyInjection\PhlexibleElasticaExtension;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Yaml\Yaml;
 
 /**
  * Phlexible elastica extension test.
  *
- * @author Stephan Wentz <swentz@brainbits.net>
- *
  * @covers \Phlexible\Bundle\ElasticaBundle\DependencyInjection\PhlexibleElasticaExtension
  */
-class PhlexibleElasticaExtensionTest extends \PHPUnit_Framework_TestCase
+class PhlexibleElasticaExtensionTest extends TestCase
 {
     public function testBasicConfig()
     {

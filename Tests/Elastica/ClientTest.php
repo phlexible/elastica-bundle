@@ -18,16 +18,15 @@ use Elastica\Transport\NullTransport;
 use Phlexible\Bundle\ElasticaBundle\Elastica\Client;
 use Phlexible\Bundle\ElasticaBundle\Elastica\Index;
 use Phlexible\Bundle\ElasticaBundle\Logger\ElasticaLogger;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 
 /**
  * Client test.
  *
- * @author Stephan Wentz <sw@brainbits.net>
- *
  * @covers \Phlexible\Bundle\ElasticaBundle\Elastica\Client
  */
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends TestCase
 {
     public function testRequestsAreLogged()
     {

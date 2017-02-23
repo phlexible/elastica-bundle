@@ -12,14 +12,15 @@
 namespace Phlexible\Bundle\ElasticaBundle\Tests\Logger;
 
 use Phlexible\Bundle\ElasticaBundle\Logger\ElasticaLogger;
+use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 
 /**
- * @author Richard Miller <info@limethinking.co.uk>
+ * Elastica logger test.
  *
  * @covers \Phlexible\Bundle\ElasticaBundle\Logger\ElasticaLogger
  */
-class ElasticaLoggerTest extends \PHPUnit_Framework_TestCase
+class ElasticaLoggerTest extends TestCase
 {
     /**
      * @param string $level

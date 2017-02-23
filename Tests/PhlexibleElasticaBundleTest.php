@@ -12,15 +12,14 @@
 namespace Phlexible\Bundle\ElasticaBundle\Tests;
 
 use Phlexible\Bundle\ElasticaBundle\PhlexibleElasticaBundle;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Elastica bundle test.
  *
- * @author Stephan Wentz <sw@brainbits.net>
- *
  * @covers \Phlexible\Bundle\ElasticaBundle\PhlexibleElasticaBundle
  */
-class PhlexibleElasticaBundleTest extends \PHPUnit_Framework_TestCase
+class PhlexibleElasticaBundleTest extends TestCase
 {
     public function testBundle()
     {

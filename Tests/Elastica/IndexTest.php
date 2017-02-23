@@ -14,6 +14,7 @@ namespace Phlexible\Bundle\ElasticaBundle\Tests\Elastica;
 use Elastica\Type;
 use Phlexible\Bundle\ElasticaBundle\Elastica\Client;
 use Phlexible\Bundle\ElasticaBundle\Elastica\Index;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Index test.
@@ -22,7 +23,7 @@ use Phlexible\Bundle\ElasticaBundle\Elastica\Index;
  *
  * @covers \Phlexible\Bundle\ElasticaBundle\Elastica\Index
  */
-class IndexTest extends \PHPUnit_Framework_TestCase
+class IndexTest extends TestCase
 {
     public function testGetOriginalName()
     {

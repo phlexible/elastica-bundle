@@ -13,15 +13,16 @@ namespace Phlexible\Bundle\ElasticaBundle\Tests\DataCollector;
 
 use Phlexible\Bundle\ElasticaBundle\DataCollector\ElasticaDataCollector;
 use Phlexible\Bundle\ElasticaBundle\Logger\ElasticaLogger;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @author Richard Miller <info@limethinking.co.uk>
+ * Elastica data collector test
  *
  * @covers \Phlexible\Bundle\ElasticaBundle\DataCollector\ElasticaDataCollector
  */
-class ElasticaDataCollectorTest extends \PHPUnit_Framework_TestCase
+class ElasticaDataCollectorTest extends TestCase
 {
     public function testCorrectAmountOfQueries()
     {
