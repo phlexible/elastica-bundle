@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Elastica data collector test
+ * Elastica data collector test.
  *
  * @covers \Phlexible\Bundle\ElasticaBundle\DataCollector\ElasticaDataCollector
  */
