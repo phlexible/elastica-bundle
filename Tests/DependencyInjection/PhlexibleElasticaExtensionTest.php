@@ -16,7 +16,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * Phlexible elastica extension test
+ * Phlexible elastica extension test.
  *
  * @author Stephan Wentz <swentz@brainbits.net>
  *
