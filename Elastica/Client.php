@@ -43,17 +43,18 @@ class Client extends BaseClient
      * @param string $method
      * @param array  $data
      * @param array  $query
+     * @param string $contentType
      *
      * @return \Elastica\Response
      */
-    public function request($path, $method = Request::GET, $data = array(), array $query = array())
+    public function request($path, $method = Request::GET, $data = array(), array $query = array(), $contentType = Request::DEFAULT_CONTENT_TYPE)
     {
         if ($this->stopwatch) {
             $this->stopwatch->start('es_request', 'phlexible_elastica');
         }
 
         $start = microtime(true);
-        $response = parent::request($path, $method, $data, $query);
+        $response = parent::request($path, $method, $data, $query, $contentType);
         $responseData = $response->getData();
 
         if (isset($responseData['took']) && isset($responseData['hits'])) {
